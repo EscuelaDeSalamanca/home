@@ -1,28 +1,32 @@
 .brand-text {
-  color: yellow;
+  color: gold;
   font-style: bolder;
   font-size: 25px;
 }
 
 .brand-text:hover {
-  color: yellow;
+  color: gold;
 }
 
 .eds-nav-link {
   margin-left: 3px;
   margin-right: 3px;
-  color: #fff;
+  color: #ccf;
   font-weight: bold;
 }
 
 .eds-nav-link:hover {
-  color: yellow;
+  color: gold;
 }
 
 .active > a {
-  color: #ffaadd;
+  color: gold;
 }
 
 nav > a {
   float: right;
-}  
+}
+
+.app-collapse{
+  color: gold;
+}

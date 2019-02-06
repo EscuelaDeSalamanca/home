@@ -52,7 +52,7 @@ class App extends Component<any, AppState> {
 
   private toggleNavBar(): void {
     this.setState({
-      isNavbarOpen: this.state.isNavbarOpen
+      isNavbarOpen: !this.state.isNavbarOpen
     });
   }
 
@@ -67,7 +67,7 @@ class App extends Component<any, AppState> {
     const DATA_VIEW: string = evt.currentTarget.getAttribute('data-view') || '';
     DATA_VIEW.length > 0 && 
       DATA_VIEW !== this.state.activeView && 
-      this.setState((prevState: Readonly<AppState>) => Object.assign(prevState, { activeView: DATA_VIEW }));
+      this.setState((prevState: Readonly<AppState>) => Object.assign(prevState, { activeView: DATA_VIEW, isNavbarOpen: !prevState.isNavbarOpen }));
   }
   
   public render(): JSX.Element {
@@ -75,7 +75,9 @@ class App extends Component<any, AppState> {
       <div className="App">
         <Navbar color="primary" expand="md">
           <NavbarBrand className="brand-text" href="#">Escuela de Salamanca</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavBar}></NavbarToggler>
+          <NavbarToggler className="app-collapse" onClick={this.toggleNavBar}>
+            <i className="fas fa-bars"></i>
+          </NavbarToggler>
           <Collapse isOpen={this.state.isNavbarOpen} navbar>
             <Nav className="ml-auto" navbar>
               {
